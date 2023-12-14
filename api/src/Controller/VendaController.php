@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Controller;
+namespace zcbapi\Controller;
 
 class VendaController {
     // Métodos para manipulação de vendas

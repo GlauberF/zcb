@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Service;
+namespace zcbapi\Service;
 
 class ProdutoService {
     // Lógica de negócios relacionada a produtos

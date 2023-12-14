@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Service;
+namespace zcbapi\Service;
 
 class ClienteService {
     // Lógica de negócios relacionada a clientes

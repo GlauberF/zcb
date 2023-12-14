@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Service;
+namespace zcbapi\Service;
 
 class FormaPagamentoService {
     // Lógica de negócios relacionada a formas de pagamento

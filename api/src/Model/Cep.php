@@ -1,7 +1,7 @@
 <?php
 
-namespace zcb\Model;
+namespace zcbapi\Model;
 
-class Venda {
+class Cep {
     // Propriedades e métodos da classe
 }

@@ -1,7 +1,7 @@
 <?php
 
-namespace zcb\Model;
+namespace zcbapi\Model;
 
-class FormaPagamento {
+class Venda {
     // Propriedades e métodos da classe
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Controller;
+namespace zcbapi\Controller;
 
 class ProdutoController {
     // Métodos para manipulação de produtos

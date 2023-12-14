@@ -1,6 +1,6 @@
 <?php
 
-namespace zcb\Model;
+namespace zcbapi\Model;
 
 class Cliente {
     // Propriedades e métodos da classe
