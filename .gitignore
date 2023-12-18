@@ -1,2 +1,6 @@
 .idea
 .idea/*
+clientes/node_modules
+formas_pagamento/node_modules
+produtos/node_modules
+vendas/node_modules
