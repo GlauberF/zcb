@@ -6,9 +6,9 @@ services:
         - 5432:5432
       volumes:
         - ./data/postgres:/var/lib/postgresql/data
-      #environment:
-      #  - POSTGRES_PASSWORD=S3cret
-      #  - POSTGRES_USER=glauber
+      environment:
+        - POSTGRES_PASSWORD=S3cret
+        - POSTGRES_USER=glauber
       #  - POSTGRES_DB=algo
   zookeeper:
     image: zookeeper:3.4.9
@@ -22,6 +22,8 @@ services:
     volumes:
       - ./data/zookeeper/data:/data
       - ./data/zookeeper/datalog:/datalog
+    depends_on:
+      - postgres
   kafka1:
     image: confluentinc/cp-kafka:5.3.0
     hostname: kafka1
