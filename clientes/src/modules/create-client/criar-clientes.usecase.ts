@@ -1,13 +1,32 @@
-import {CriarClientesUseCase} from "./criar-clientes.controller";
+import {prismaClient} from "../../infra/database/prismaClient";
 
-export class CriarClientesController {
-    constructor() {
-    }
+type CriarClientesRequest = {
+    nome: string,
+    id_usuario: string,
+    cpf: string,
+    endereco: string,
+    email: string,
+    cep: string
+}
 
-    async handle(request: any, response: any) {
-        //const useCase = new CriarClientesUseCase();
-        //const result = await useCase.execute(request);
+export class CriarClientesUseCase {
+    constructor() {}
 
-        console.log(request);
+    async execute(data: CriarClientesRequest) {
+        const cliente = await prismaClient.clientes.findFirst({
+            where: {
+                email: data.email
+            }
+        });
+
+        if (cliente) throw new Error('Cliente já existe');
+
+        const novoCliente = await prismaClient.clientes.create({
+            data: {
+                ...data
+            }
+        });
+
+        return novoCliente;
     }
 }

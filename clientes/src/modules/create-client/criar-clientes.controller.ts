@@ -1,31 +1,30 @@
-import {prismaClient} from "../../infra/database/prismaClient";
+import {getPostData} from "../../utils/utils";
+import {handleDataAlreadyExists, handleGenericError, handleNoBody} from "../../utils/errors";
+import {handleResponse} from "../../utils/response";
 
-type CriarClientesRequest = {
-    nome: string,
-    cpf: string,
-    endereco: string,
-    email: string,
-    cep: string
-}
+import {CriarClientesUseCase} from "./criar-clientes.usecase";
 
-export class CriarClientesUseCase {
+export class CriarClientesController {
     constructor() {}
 
-    async execute(data: CriarClientesRequest) {
-        const cliente = await prismaClient.clientes.findFirst({
-            where: {
-                email: data.email
+    async handle(req: any, res: any) {
+        const body = await getPostData(req);
+
+        if (!body) {
+            return handleNoBody(res);
+        }
+
+        const useCase = new CriarClientesUseCase();
+
+        try {
+            const result = await useCase.execute(JSON.parse(body));
+            return handleResponse(res, result);
+        } catch (e) {
+            const msg = e.message || e.toString();
+            if (msg === 'Cliente já existe') {
+                return handleDataAlreadyExists(res, 'Cliente já existe');
             }
-        });
-
-        if (cliente) throw new Error('Cliente já existe');
-
-        const novoCliente = await prismaClient.clientes.create({
-            data: {
-                ...data
-            }
-        });
-
-        return novoCliente;
+            return handleGenericError(res, e);
+        }
     }
 }

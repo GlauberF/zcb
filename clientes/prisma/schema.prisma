@@ -12,6 +12,7 @@ datasource db {
 
 model Clientes {
   id String @id @default(uuid())
+  id_usuario String
   nome String
   cpf String
   endereco String
