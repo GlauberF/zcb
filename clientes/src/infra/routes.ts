@@ -4,6 +4,7 @@ import {handleMissingId} from "../utils/errors";
 import {CriarClientesController} from "../modules/create-client/criar-clientes.controller";
 import {AtualizarClientesController} from "../modules/atualizar-client/atualizar-clientes.controller";
 import {prismaClient} from "./database/prismaClient";
+import {DeletarClientesController} from "../modules/deletar-client/deletar-clientes.controller";
 
 const routes = async (req: any, res: any) => {
     const id = extractId(req.url);
@@ -21,8 +22,7 @@ const routes = async (req: any, res: any) => {
     } else if (id && req.method === 'PUT') {
         return new AtualizarClientesController().handle(req, res);
     } else if (id && req.method === 'DELETE') {
-        res.end(`DELETE ${id}`);
-        //deleteProduct(req, res, id);
+        return new DeletarClientesController().handle(req, res);
     } else {
         handleMissingId(res);
     }
