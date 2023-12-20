@@ -2,24 +2,18 @@ import {extractId, getPostData} from "../../utils/utils";
 import {handleDataAlreadyExists, handleGenericError, handleMissingId, handleNoBody} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {AtualizarClientesUsecase} from "./atualizar-clientes.usecase";
+import {BuscarClientesUsecase} from "./buscar-clientes.usecase";
 
-export class AtualizarClientesController {
+export class BuscarClientesController {
     constructor() {}
 
     async handle(req: any, res: any) {
-        const body = await getPostData(req);
         const id = extractId(req.url) ?? '';
-
-        if (!body) {
-            return handleNoBody(res);
-        }
-
-        const useCase = new AtualizarClientesUsecase();
+        const useCase = new BuscarClientesUsecase();
 
         try {
-            const result = await useCase.execute(id, JSON.parse(body));
-            return handleResponse(res, result, `Cliente ${(result as any)?.nome} Alterado com sucesso!`, 200);
+            const result = await useCase.execute(id);
+            return handleResponse(res, result, `Registro encontrado com sucesso!`, 200);
         } catch (e) {
             const msg = e.message || e.toString();
             if (msg === 'O ID do registro não foi fornecido') {

@@ -1,12 +1,12 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 
-export class DeletarClientesUsecase {
+export class BuscarClientesUsecase {
     constructor() {}
 
     async execute(id: string) {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
-        return prismaClient.clientes.delete({
+        return prismaClient.clientes.findUnique({
             where: {id}
         });
     }
