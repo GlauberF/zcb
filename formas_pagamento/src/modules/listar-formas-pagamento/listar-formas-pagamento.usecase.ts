@@ -1,8 +1,7 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 
-export class ListarClientesUsecase {
-    constructor() {
-    }
+export class ListarFormasPagamentoUsecase {
+    constructor() {}
 
     async execute(queryParams?: any) {
         let limit = parseInt(queryParams?.limit || '10', 10);
@@ -20,7 +19,7 @@ export class ListarClientesUsecase {
 
         const filter = Object.keys(where).length > 0 ? {where} : {};
 
-        return prismaClient.clientes.findMany({
+        return prismaClient.formasPagamento.findMany({
             skip: page,
             take: limit,
             ...filter,

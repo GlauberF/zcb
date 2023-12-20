@@ -1,11 +1,12 @@
-import {extractId, getPostData} from "../../utils/utils";
-import {handleDataAlreadyExists, handleGenericError, handleMissingId, handleNoBody} from "../../utils/errors";
+import {extractId} from "../../utils/utils";
+import {handleGenericError, handleMissingId} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
 import {BuscarClientesUsecase} from "./buscar-clientes.usecase";
 
 export class BuscarClientesController {
-    constructor() {}
+    constructor() {
+    }
 
     async handle(req: any, res: any) {
         const id = extractId(req.url) ?? '';

@@ -9,3 +9,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model FormasPagamento {
+  id String @id @default(uuid())
+  id_usuario String
+  nome String
+  parcelas String
+
+  @@map("formas_pagamento")
+}

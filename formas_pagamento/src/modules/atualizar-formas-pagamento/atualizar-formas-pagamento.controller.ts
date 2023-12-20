@@ -2,16 +2,16 @@ import {extractId, getPostData} from "../../utils/utils";
 import {handleGenericError, handleMissingId, handleNoBody} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {AtualizarClientesUsecase} from "./atualizar-clientes.usecase";
+import {AtualizarFormasPagamentoUsecase} from "./atualizar-formas-pagamento.usecase";
 
-export class AtualizarClientesController {
+export class AtualizarFormasPagamentoController {
     constructor() {
     }
 
     async handle(req: any, res: any) {
         const body = await getPostData(req);
         const id = extractId(req.url) ?? '';
-        const useCase = new AtualizarClientesUsecase();
+        const useCase = new AtualizarFormasPagamentoUsecase();
 
         try {
             const result = await useCase.execute(id, JSON.parse(body));
@@ -20,7 +20,8 @@ export class AtualizarClientesController {
             const msg = e.message || e.toString();
             if (msg === 'O ID do registro não foi fornecido') {
                 return handleMissingId(res, 'O ID do registro não foi fornecido. Por favor, informe o ID do registro.');
-            } else if (msg === 'Body da solicitação ausente') {
+            }
+            else if (msg === 'Body da solicitação ausente') {
                 return handleNoBody(res);
             }
             return handleGenericError(res, e);

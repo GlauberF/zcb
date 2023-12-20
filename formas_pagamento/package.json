@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts"
   },
   "author": "Glauber Funez",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.7.1",
     "express": "^4.18.2",
     "kafkajs": "^2.2.4"
   },

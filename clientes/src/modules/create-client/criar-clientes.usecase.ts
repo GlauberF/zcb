@@ -10,9 +10,12 @@ type CriarClientesRequest = {
 }
 
 export class CriarClientesUseCase {
-    constructor() {}
+    constructor() {
+    }
 
     async execute(data: CriarClientesRequest) {
+        if (!data) throw new Error('Body da solicitação ausente');
+
         const cliente = await prismaClient.clientes.findFirst({
             where: {
                 email: data.email

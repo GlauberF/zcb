@@ -7,7 +7,7 @@ export const handleResponse = (res: any, data: any, message: string = undefined,
         restParams['limit'] = limit;
     }
 
-    res.writeHead(statusCode, {'Content-Type': 'application/json'});
+    res.writeHead(statusCode, { 'Content-Type': 'application/json' });
     res.end(
         JSON.stringify({
             error: null,

@@ -9,13 +9,16 @@ type AtualizarClientesRequest = {
 }
 
 export class AtualizarClientesUsecase {
-    constructor() {}
+    constructor() {
+    }
 
     async execute(id: string, data: AtualizarClientesRequest) {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
-        const atualizarCliente = await prismaClient.clientes.update({
-            where: { id: id },
+        if (!data) throw new Error('Body da solicitação ausente');
+
+        return prismaClient.clientes.update({
+            where: {id: id},
             data: {
                 nome: data.nome,
                 cpf: data.cpf,
@@ -24,7 +27,5 @@ export class AtualizarClientesUsecase {
                 cep: data.cep
             },
         });
-
-        return atualizarCliente;
     }
 }
