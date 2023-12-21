@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
 
 export class DeletarClientesUsecase {
     constructor() {
@@ -7,8 +8,14 @@ export class DeletarClientesUsecase {
     async execute(id: string) {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
-        return prismaClient.clientes.delete({
+        const deletarCliente = await prismaClient.clientes.delete({
             where: {id}
         });
+
+        console.log('MS_CLIENTES_DELETED')
+        const kafkaProducer = new KafkaSendMessage();
+        await kafkaProducer.execute('MS_CLIENTES_DELETED', deletarCliente);
+
+        return deletarCliente;
     }
 }

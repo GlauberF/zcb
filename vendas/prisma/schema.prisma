@@ -9,3 +9,68 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Clientes {
+  id           String    @id @default(uuid())
+  id_usuario   String
+  nome         String
+  cpf          String?
+  endereco     String?
+  email        String    @unique
+  cep          String?
+  data_exclusao DateTime?
+  Vendas       Vendas[]
+
+  @@map("clientes")
+}
+
+model FormasPagamento {
+  id           String    @id @default(uuid())
+  id_usuario   String
+  nome         String
+  parcelas     String
+  data_exclusao DateTime?
+  Vendas       Vendas[]
+
+  @@map("formas_pagamento")
+}
+
+model Produtos {
+  id             String           @id @default(uuid())
+  id_usuario     String
+  nome           String
+  quantidade     Float
+  preco          Float
+  data_exclusao   DateTime?
+  VendasProdutos VendasProdutos[]
+
+  @@map("produtos")
+}
+
+model Vendas {
+  id               String           @id @default(uuid())
+  id_usuario       String
+  cliente          Clientes         @relation(fields: [clienteId], references: [id])
+  formaPagamento   FormasPagamento  @relation(fields: [formaPagamentoId], references: [id])
+  clienteId        String
+  produtos         VendasProdutos[]
+  formaPagamentoId String
+  val_total        Float
+  data_criacao     DateTime         @default(now())
+
+  @@map("vendas")
+}
+
+model VendasProdutos {
+  id         String   @id @default(uuid())
+  index      Int
+  venda      Vendas   @relation(fields: [vendaId], references: [id])
+  produto    Produtos @relation(fields: [produtoId], references: [id])
+  vendaId    String
+  produtoId  String
+  quantidade Float
+  val_unit   Float
+  val_tot    Float
+
+  @@map("vendas_produtos")
+}

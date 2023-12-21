@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
 
 type AtualizarClientesRequest = {
     nome: string,
@@ -17,7 +18,7 @@ export class AtualizarClientesUsecase {
 
         if (!data) throw new Error('Body da solicitação ausente');
 
-        return prismaClient.clientes.update({
+        const atualizarCliente = await prismaClient.clientes.update({
             where: {id: id},
             data: {
                 nome: data.nome,
@@ -27,5 +28,11 @@ export class AtualizarClientesUsecase {
                 cep: data.cep
             },
         });
+
+        console.log('MS_CLIENTES_UPDATED')
+        const kafkaProducer = new KafkaSendMessage();
+        await kafkaProducer.execute('MS_CLIENTES_UPDATED', atualizarCliente);
+
+        return atualizarCliente;
     }
 }

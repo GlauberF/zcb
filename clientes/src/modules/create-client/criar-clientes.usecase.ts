@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
 
 type CriarClientesRequest = {
     nome: string,
@@ -29,6 +30,10 @@ export class CriarClientesUseCase {
                 ...data
             }
         });
+
+        console.log('MS_CLIENTES_CREATED')
+        const kafkaProducer = new KafkaSendMessage();
+        await kafkaProducer.execute('MS_CLIENTES_CREATED', novoCliente);
 
         return novoCliente;
     }
