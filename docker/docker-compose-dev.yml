@@ -25,29 +25,6 @@ services:
         - api-network
 
   #######################################
-  # API
-  #######################################
-  clientes:
-    build:
-      context: ./../clientes
-    command: [ "pm2-runtime", "pm2.config.js" ]
-    restart: always
-    ports:
-      - "5010:5010"
-    networks:
-      - api-network
-
-  formapagamento:
-    build:
-      context: ./../formas_pagamento
-    command: [ "pm2-runtime", "pm2.config.js" ]
-    restart: always
-    ports:
-      - "5020:5020"
-    networks:
-      - api-network
-
-  #######################################
   # Postgres: The database used by Kong
   #######################################
 #  kong-database:
