@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("../utils/utils");
 const errors_1 = require("../utils/errors");
 const criar_vendas_controller_1 = require("../modules/create-vendas/criar-vendas.controller");
-const atualizar_produtos_controller_1 = require("../modules/atualizar-produtos/atualizar-produtos.controller");
-const deletar_produtos_controller_1 = require("../modules/deletar-produtos/deletar-produtos.controller");
-const buscar_produtos_controller_1 = require("../modules/buscar-produtos/buscar-produtos.controller");
+const atualizar_vendas_controller_1 = require("../modules/atualizar-vendas/atualizar-vendas.controller");
+const deletar_vendas_controller_1 = require("../modules/deletar-vendas/deletar-vendas.controller");
+const buscar_vendas_controller_1 = require("../modules/buscar-vendas/buscar-vendas.controller");
 const listar_vendas_controller_1 = require("../modules/listar-vendas/listar-vendas.controller");
 const routes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = (0, utils_1.extractId)(req.url);
@@ -23,16 +23,16 @@ const routes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return new listar_vendas_controller_1.ListarVendasController().handle(req, res);
     }
     else if (id && req.method === 'GET') {
-        return new buscar_produtos_controller_1.BuscarProdutosController().handle(req, res);
+        return new buscar_vendas_controller_1.BuscarVendasController().handle(req, res);
     }
     else if (req.url === '/' && req.method === 'POST') {
         return new criar_vendas_controller_1.CriarVendasController().handle(req, res);
     }
     else if (id && req.method === 'PUT') {
-        return new atualizar_produtos_controller_1.AtualizarProdutosController().handle(req, res);
+        return new atualizar_vendas_controller_1.AtualizarVendasController().handle(req, res);
     }
     else if (id && req.method === 'DELETE') {
-        return new deletar_produtos_controller_1.DeletarProdutosController().handle(req, res);
+        return new deletar_vendas_controller_1.DeletarVendasController().handle(req, res);
     }
     else {
         (0, errors_1.handleMissingId)(res);

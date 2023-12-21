@@ -37,8 +37,17 @@ class ListarVendasUsecase {
                 acc[key] = { contains: restQueryParams[key], mode: 'insensitive' };
                 return acc;
             }, { id_usuario: (0, fakeJWT_1.FakeJWT)().id });
+            console.log(where);
             const filter = Object.keys(where).length > 0 ? { where } : {};
-            return prismaClient_1.prismaClient.produtos.findMany(Object.assign({ skip: page, take: limit }, filter));
+            return prismaClient_1.prismaClient.vendas.findMany(Object.assign(Object.assign({ skip: page, take: limit }, filter), { include: {
+                    cliente: true,
+                    formaPagamento: true,
+                    produtos: {
+                        include: {
+                            produto: true,
+                        },
+                    },
+                } }));
         });
     }
 }
