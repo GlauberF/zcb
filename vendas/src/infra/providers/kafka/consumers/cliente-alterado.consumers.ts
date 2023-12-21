@@ -7,7 +7,7 @@ export const clienteAlteradoConsumers = async () => {
     await consumer.connect();
     await consumer.subscribe({topic: "MS_CLIENTES_UPDATED", fromBeginning: true});
     await consumer.run({
-        eachMessage: async ({message, partition, offset}) => {
+        eachMessage: async ({message}) => {
             const messageToString = message.value?.toString();
             const cliente = JSON.parse(messageToString);
 

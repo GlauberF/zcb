@@ -7,7 +7,7 @@ export const clienteDeletadoConsumers = async () => {
     await consumer.connect();
     await consumer.subscribe({topic: "MS_CLIENTES_DELETED", fromBeginning: true});
     await consumer.run({
-        eachMessage: async ({message, partition, offset}) => {
+        eachMessage: async ({message}) => {
             const messageToString = message.value?.toString();
             const cliente = JSON.parse(messageToString);
 
