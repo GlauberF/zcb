@@ -22,7 +22,7 @@ export class ListarProdutosUsecase {
         return prismaClient.produtos.findMany({
             skip: page,
             take: limit,
-            ...filter,
+            ...(filter as any),
         });
     }
 }

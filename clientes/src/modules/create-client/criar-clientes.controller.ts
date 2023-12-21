@@ -16,7 +16,7 @@ export class CriarClientesController {
             const result = await useCase.execute(JSON.parse(body));
             return handleResponse(res, result);
         } catch (e) {
-            const msg = e.message || e.toString();
+            const msg = (e as Error)?.message || e.toString();
             if (msg === 'Cliente já existe') {
                 return handleDataAlreadyExists(res, 'Cliente já existe');
             } else if (msg === 'Body da solicitação ausente') {

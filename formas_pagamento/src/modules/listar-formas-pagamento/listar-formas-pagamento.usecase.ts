@@ -22,7 +22,7 @@ export class ListarFormasPagamentoUsecase {
         return prismaClient.formasPagamento.findMany({
             skip: page,
             take: limit,
-            ...filter,
+            ...(filter as any),
         });
     }
 }

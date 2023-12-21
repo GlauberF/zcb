@@ -23,7 +23,7 @@ export class ListarClientesUsecase {
         return prismaClient.clientes.findMany({
             skip: page,
             take: limit,
-            ...filter,
+            ...(filter as any),
         });
     }
 }

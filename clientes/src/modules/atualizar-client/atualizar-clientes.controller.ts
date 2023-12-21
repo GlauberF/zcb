@@ -17,7 +17,7 @@ export class AtualizarClientesController {
             const result = await useCase.execute(id, JSON.parse(body));
             return handleResponse(res, result, `Registro alterado com sucesso!`, 200);
         } catch (e) {
-            const msg = e.message || e.toString();
+            const msg = (e as Error)?.message || e.toString();
             if (msg === 'O ID do registro não foi fornecido') {
                 return handleMissingId(res, 'O ID do registro não foi fornecido. Por favor, informe o ID do registro.');
             } else if (msg === 'Body da solicitação ausente') {
