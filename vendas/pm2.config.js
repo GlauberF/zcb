@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'ms_clientes',
+            name: 'ms_vendas',
             script: 'build/server.js',
             watch: false,
             instances: 1,

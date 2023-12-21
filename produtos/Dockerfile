@@ -20,7 +20,7 @@
 FROM node:16-alpine
 
 # Crie o diretório de trabalho
-WORKDIR /usr/src/api
+WORKDIR /usr/src/apiprodutos
 
 # Copie os arquivos de aplicativo
 COPY . .
@@ -30,10 +30,6 @@ RUN npm install
 
 # Instale o PM2 globalmente
 RUN npm install pm2 -g
-
-# Copie e execute o script de substituição antes de transpilar
-COPY replace-env.js /usr/src/api/
-RUN node replace-env.js
 
 # Transpile TypeScript
 RUN npm run build

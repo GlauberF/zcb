@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
+    "build": "node replace-env.js && tsc && rm -f .env && cp .env-dev .env && rm -f .env-dev",
     "start": "node build/server.js"
   },
   "author": "Glauber Funez",
