@@ -2,15 +2,15 @@ import {extractQueryParams} from "../../utils/utils";
 import {handleGenericError} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {ListarProdutosUsecase} from "./listar-produtos.usecase";
+import {ListarVendasUsecase} from "./listar-vendas.usecase";
 
-export class ListarProdutosController {
+export class ListarVendasController {
     constructor() {
     }
 
     async handle(req: any, res: any) {
         const queryParams = extractQueryParams(req.url);
-        const useCase = new ListarProdutosUsecase();
+        const useCase = new ListarVendasUsecase();
         let limit = parseInt(queryParams?.limit || '10', 10);
         let page = parseInt(queryParams?.page || '0', 10);
 

@@ -1,6 +1,6 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 
-export class ListarProdutosUsecase {
+export class ListarVendasUsecase {
     constructor() {}
 
     async execute(queryParams?: any) {

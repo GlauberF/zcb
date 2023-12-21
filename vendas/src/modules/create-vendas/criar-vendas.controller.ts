@@ -2,15 +2,15 @@ import {getPostData} from "../../utils/utils";
 import {handleGenericError, handleNoBody} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {CriarProdutosUsecase} from "./criar-produtos.usecase";
+import {CriarVendasUsecase} from "./criar-vendas.usecase";
 
-export class CriarProdutosController {
+export class CriarVendasController {
     constructor() {
     }
 
     async handle(req: any, res: any) {
         const body = await getPostData(req);
-        const useCase = new CriarProdutosUsecase();
+        const useCase = new CriarVendasUsecase();
 
         try {
             const result = await useCase.execute(JSON.parse(body));
