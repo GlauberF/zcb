@@ -2,16 +2,16 @@ import {extractId, getPostData} from "../../utils/utils";
 import {handleGenericError, handleMissingId, handleNoBody} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {AtualizarProdutosUsecase} from "./atualizar-produtos.usecase";
+import {AtualizarVendasUsecase} from "./atualizar-vendas.usecase";
 
-export class AtualizarProdutosController {
+export class AtualizarVendasController {
     constructor() {
     }
 
     async handle(req: any, res: any) {
         const body = await getPostData(req);
         const id = extractId(req.url) ?? '';
-        const useCase = new AtualizarProdutosUsecase();
+        const useCase = new AtualizarVendasUsecase();
 
         try {
             const result = await useCase.execute(id, JSON.parse(body));

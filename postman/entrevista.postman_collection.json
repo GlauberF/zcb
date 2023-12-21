@@ -1,0 +1,1434 @@
+{
+	"info": {
+		"_postman_id": "9372a549-38a6-4c26-b124-91dcdb385693",
+		"name": "entrevista",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20837753"
+	},
+	"item": [
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Glauber Funez\",\n    \"cpf\": \"000.000.000-00\",\n    \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n    \"email\": \"admin@gmail.com.br\",\n    \"cep\": \"01001-000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5010",
+							"host": [
+								"localhost"
+							],
+							"port": "5010"
+						}
+					},
+					"response": [
+						{
+							"name": "criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Glauber Funez\",\n    \"cpf\": \"000.000.000-00\",\n    \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n    \"email\": \"admin@gmail.com\",\n    \"cep\": \"01001-000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5010",
+									"host": [
+										"localhost"
+									],
+									"port": "5010"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:06:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": null,\n    \"data\": {\n        \"id\": \"2c2b8cdc-325d-40b1-8fc2-c087df33a977\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Glauber Funez\",\n        \"cpf\": \"000.000.000-00\",\n        \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n        \"email\": \"admin@gmail.com\",\n        \"cep\": \"01001-000\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5010/feedbfa6-4819-4e70-a5dc-b156963a8a28",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"feedbfa6-4819-4e70-a5dc-b156963a8a28"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buscar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5010/6018d0e1-09e5-44dd-a886-5e3ffc4def5f",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"6018d0e1-09e5-44dd-a886-5e3ffc4def5f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 00:41:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro encontrado com sucesso!\",\n    \"data\": {\n        \"id\": \"feedbfa6-4819-4e70-a5dc-b156963a8a28\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Glauber Funez\",\n        \"cpf\": \"000.000.000-00\",\n        \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n        \"email\": \"admin@gmail.com.br\",\n        \"cep\": \"01001-000\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5010?limit=10",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5010?limit=10",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 01:30:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"data\": [\n        {\n            \"id\": \"6018d0e1-09e5-44dd-a886-5e3ffc4def5f\",\n            \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n            \"nome\": \"Glauber Funez\",\n            \"cpf\": \"000.000.000-00\",\n            \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n            \"email\": \"admin@gmail.com.br\",\n            \"cep\": \"01001-000\"\n        }\n    ],\n    \"page\": 0,\n    \"limit\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"Glauber Funez up\",\n    \"cpf\":\"000.000.000-00\",\n    \"endereco\":\"Praça da Sé, Sé, São Paulo, SP\",\n    \"email\":\"admin@gmail.com\",\n    \"cep\":\"01001-000\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5010/2c2b8cdc-325d-40b1-8fc2-c087df33a977",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"2c2b8cdc-325d-40b1-8fc2-c087df33a977"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alterar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Glauber Funez up\",\n    \"cpf\":\"000.000.000-00\",\n    \"endereco\":\"Praça da Sé, Sé, São Paulo, SP\",\n    \"email\":\"admin@gmail.com\",\n    \"cep\":\"01001-000\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5010/2c2b8cdc-325d-40b1-8fc2-c087df33a977",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"2c2b8cdc-325d-40b1-8fc2-c087df33a977"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:38:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": null,\n    \"data\": {\n        \"id\": \"2c2b8cdc-325d-40b1-8fc2-c087df33a977\",\n        \"id_usuario\": \"feedbfa6-4819-4e70-a5dc-b156963a8a28\",\n        \"nome\": \"Glauber Funez up\",\n        \"cpf\": \"000.000.000-00\",\n        \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n        \"email\": \"admin@gmail.com\",\n        \"cep\": \"01001-000\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5010/251dedb7-c9e7-44cc-8bf8-730fdb1e7561",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"251dedb7-c9e7-44cc-8bf8-730fdb1e7561"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:5010/3502ae4b-1633-4549-998c-8e324c0803ae",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"3502ae4b-1633-4549-998c-8e324c0803ae"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:52:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Cliente Glauber Funez removido com sucesso!\",\n    \"data\": {\n        \"id\": \"3502ae4b-1633-4549-998c-8e324c0803ae\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Glauber Funez\",\n        \"cpf\": \"000.000.000-00\",\n        \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n        \"email\": \"admin@gmail.com.br\",\n        \"cep\": \"01001-000\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "formas de pagamento",
+			"item": [
+				{
+					"name": "criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Dinheiro\",\n    \"parcelas\": \"0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5020",
+							"host": [
+								"localhost"
+							],
+							"port": "5020"
+						}
+					},
+					"response": [
+						{
+							"name": "criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Dinheiro\",\n    \"parcelas\": \"0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5020",
+									"host": [
+										"localhost"
+									],
+									"port": "5020"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:45:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro criado com sucesso.\",\n    \"data\": {\n        \"id\": \"fd33188a-2c5c-425a-b3db-b065a6a989ca\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Dinheiro\",\n        \"parcelas\": \"0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5020/fd33188a-2c5c-425a-b3db-b065a6a989ca",
+							"host": [
+								"localhost"
+							],
+							"port": "5020",
+							"path": [
+								"fd33188a-2c5c-425a-b3db-b065a6a989ca"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buscar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5020/fd33188a-2c5c-425a-b3db-b065a6a989ca",
+									"host": [
+										"localhost"
+									],
+									"port": "5020",
+									"path": [
+										"fd33188a-2c5c-425a-b3db-b065a6a989ca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:45:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro encontrado com sucesso!\",\n    \"data\": {\n        \"id\": \"fd33188a-2c5c-425a-b3db-b065a6a989ca\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Dinheiro\",\n        \"parcelas\": \"0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5020?limit=10",
+							"host": [
+								"localhost"
+							],
+							"port": "5020",
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5020?limit=10",
+									"host": [
+										"localhost"
+									],
+									"port": "5020",
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:46:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"data\": [\n        {\n            \"id\": \"fd33188a-2c5c-425a-b3db-b065a6a989ca\",\n            \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n            \"nome\": \"Dinheiro\",\n            \"parcelas\": \"0\"\n        }\n    ],\n    \"page\": 0,\n    \"limit\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Dinheiro UP\",\n    \"parcelas\": \"0\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5020/fd33188a-2c5c-425a-b3db-b065a6a989ca",
+							"host": [
+								"localhost"
+							],
+							"port": "5020",
+							"path": [
+								"fd33188a-2c5c-425a-b3db-b065a6a989ca"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alterar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Dinheiro UP\",\n    \"parcelas\": \"0\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5020/fd33188a-2c5c-425a-b3db-b065a6a989ca",
+									"host": [
+										"localhost"
+									],
+									"port": "5020",
+									"path": [
+										"fd33188a-2c5c-425a-b3db-b065a6a989ca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:46:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro alterado com sucesso!\",\n    \"data\": {\n        \"id\": \"fd33188a-2c5c-425a-b3db-b065a6a989ca\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Dinheiro UP\",\n        \"parcelas\": \"0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5020/95fcf86d-93b6-4fec-9604-b38b69082b41",
+							"host": [
+								"localhost"
+							],
+							"port": "5020",
+							"path": [
+								"95fcf86d-93b6-4fec-9604-b38b69082b41"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:5020/95fcf86d-93b6-4fec-9604-b38b69082b41",
+									"host": [
+										"localhost"
+									],
+									"port": "5020",
+									"path": [
+										"95fcf86d-93b6-4fec-9604-b38b69082b41"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 14:21:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro removido com sucesso!\",\n    \"data\": {\n        \"id\": \"95fcf86d-93b6-4fec-9604-b38b69082b41\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Dinheiro\",\n        \"parcelas\": \"0\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "produtos",
+			"item": [
+				{
+					"name": "criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Caneta Preta\",\n    \"quantidade\": 12,\n    \"preco\": 1.35\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5030",
+							"host": [
+								"localhost"
+							],
+							"port": "5030"
+						}
+					},
+					"response": [
+						{
+							"name": "criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Caneta Preta\",\n    \"quantidade\": 12,\n    \"preco\": 1.35\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5030",
+									"host": [
+										"localhost"
+									],
+									"port": "5030"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:50:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro criado com sucesso.\",\n    \"data\": {\n        \"id\": \"8e2f6f9f-5c33-4f05-a9e7-f6399d481051\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Caneta Preta\",\n        \"quantidade\": 12,\n        \"preco\": 1.35\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5030/8e2f6f9f-5c33-4f05-a9e7-f6399d481051",
+							"host": [
+								"localhost"
+							],
+							"port": "5030",
+							"path": [
+								"8e2f6f9f-5c33-4f05-a9e7-f6399d481051"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buscar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5030/8e2f6f9f-5c33-4f05-a9e7-f6399d481051",
+									"host": [
+										"localhost"
+									],
+									"port": "5030",
+									"path": [
+										"8e2f6f9f-5c33-4f05-a9e7-f6399d481051"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:50:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro encontrado com sucesso!\",\n    \"data\": {\n        \"id\": \"8e2f6f9f-5c33-4f05-a9e7-f6399d481051\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Caneta Preta\",\n        \"quantidade\": 12,\n        \"preco\": 1.35\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5030?limit=10",
+							"host": [
+								"localhost"
+							],
+							"port": "5030",
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5030?limit=10",
+									"host": [
+										"localhost"
+									],
+									"port": "5030",
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:51:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"data\": [\n        {\n            \"id\": \"8e2f6f9f-5c33-4f05-a9e7-f6399d481051\",\n            \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n            \"nome\": \"Caneta Preta\",\n            \"quantidade\": 12,\n            \"preco\": 1.35\n        }\n    ],\n    \"page\": 0,\n    \"limit\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Caneta Preta\",\n    \"quantidade\": 12,\n    \"preco\": 1.35\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5030/8e2f6f9f-5c33-4f05-a9e7-f6399d481051",
+							"host": [
+								"localhost"
+							],
+							"port": "5030",
+							"path": [
+								"8e2f6f9f-5c33-4f05-a9e7-f6399d481051"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alterar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Caneta Preta\",\n    \"quantidade\": 12,\n    \"preco\": 1.35\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5030/8e2f6f9f-5c33-4f05-a9e7-f6399d481051",
+									"host": [
+										"localhost"
+									],
+									"port": "5030",
+									"path": [
+										"8e2f6f9f-5c33-4f05-a9e7-f6399d481051"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:51:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro alterado com sucesso!\",\n    \"data\": {\n        \"id\": \"8e2f6f9f-5c33-4f05-a9e7-f6399d481051\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Caneta Preta\",\n        \"quantidade\": 12,\n        \"preco\": 1.35\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5030/5333de65-26cc-481e-aefa-c7305d5eb075",
+							"host": [
+								"localhost"
+							],
+							"port": "5030",
+							"path": [
+								"5333de65-26cc-481e-aefa-c7305d5eb075"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:5030/5333de65-26cc-481e-aefa-c7305d5eb075",
+									"host": [
+										"localhost"
+									],
+									"port": "5030",
+									"path": [
+										"5333de65-26cc-481e-aefa-c7305d5eb075"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 17:16:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro removido com sucesso!\",\n    \"data\": {\n        \"id\": \"5333de65-26cc-481e-aefa-c7305d5eb075\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"nome\": \"Caneta Azul UP\",\n        \"quantidade\": 12,\n        \"preco\": 1.35\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "vendas",
+			"item": [
+				{
+					"name": "criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n    \"produtos\": [{\n        \"index\": 1,\n        \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n        \"quantidade\": 2,\n        \"val_unit\": 1.35,\n        \"val_tot\": 2.7\n    }],\n    \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n    \"val_total\": 2.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5040",
+							"host": [
+								"localhost"
+							],
+							"port": "5040"
+						}
+					},
+					"response": [
+						{
+							"name": "criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n    \"produtos\": [{\n        \"index\": 1,\n        \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n        \"quantidade\": 2,\n        \"val_unit\": 1.35,\n        \"val_tot\": 2.7\n    }],\n    \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n    \"val_total\": 2.7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5040",
+									"host": [
+										"localhost"
+									],
+									"port": "5040"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 17:53:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro criado com sucesso.\",\n    \"data\": {\n        \"id\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n        \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n        \"val_total\": 2.7,\n        \"data_criacao\": \"2023-12-21T17:53:10.499Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+							"host": [
+								"localhost"
+							],
+							"port": "5040",
+							"path": [
+								"f7495bc7-f568-4533-9139-e7044e6304fb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "buscar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+									"host": [
+										"localhost"
+									],
+									"port": "5040",
+									"path": [
+										"f7495bc7-f568-4533-9139-e7044e6304fb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 18:04:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro encontrado com sucesso!\",\n    \"data\": {\n        \"id\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n        \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n        \"val_total\": 2.7,\n        \"data_criacao\": \"2023-12-21T17:53:10.499Z\",\n        \"cliente\": {\n            \"id\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n            \"id_usuario\": \"1\",\n            \"nome\": \"Glauber Funez up\",\n            \"cpf\": \"000.000.000-00\",\n            \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n            \"email\": \"admin@gmail.com\",\n            \"cep\": \"01001-000\",\n            \"data_exclusao\": \"2023-12-21T02:53:36.857Z\"\n        },\n        \"formaPagamento\": {\n            \"id\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n            \"id_usuario\": \"1\",\n            \"nome\": \"Dinheiro\",\n            \"parcelas\": \"0\",\n            \"data_exclusao\": null\n        },\n        \"produtos\": [\n            {\n                \"id\": \"771cd1f4-73f3-4d22-ac9f-6fc7a3549460\",\n                \"index\": 1,\n                \"vendaId\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n                \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n                \"quantidade\": 2,\n                \"val_unit\": 1.35,\n                \"val_tot\": 2.7,\n                \"produto\": {\n                    \"id\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n                    \"id_usuario\": \"1\",\n                    \"nome\": \"Caneta Azul\",\n                    \"quantidade\": 8,\n                    \"preco\": 1.35,\n                    \"data_exclusao\": null\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5040?limit=10",
+							"host": [
+								"localhost"
+							],
+							"port": "5040",
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5040?limit=10",
+									"host": [
+										"localhost"
+									],
+									"port": "5040",
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 18:10:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"data\": [\n        {\n            \"id\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n            \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n            \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n            \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n            \"val_total\": 2.7,\n            \"data_criacao\": \"2023-12-21T17:53:10.499Z\",\n            \"cliente\": {\n                \"id\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n                \"id_usuario\": \"1\",\n                \"nome\": \"Glauber Funez up\",\n                \"cpf\": \"000.000.000-00\",\n                \"endereco\": \"Praça da Sé, Sé, São Paulo, SP\",\n                \"email\": \"admin@gmail.com\",\n                \"cep\": \"01001-000\",\n                \"data_exclusao\": \"2023-12-21T02:53:36.857Z\"\n            },\n            \"formaPagamento\": {\n                \"id\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n                \"id_usuario\": \"1\",\n                \"nome\": \"Dinheiro\",\n                \"parcelas\": \"0\",\n                \"data_exclusao\": null\n            },\n            \"produtos\": [\n                {\n                    \"id\": \"771cd1f4-73f3-4d22-ac9f-6fc7a3549460\",\n                    \"index\": 1,\n                    \"vendaId\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n                    \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n                    \"quantidade\": 2,\n                    \"val_unit\": 1.35,\n                    \"val_tot\": 2.7,\n                    \"produto\": {\n                        \"id\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n                        \"id_usuario\": \"1\",\n                        \"nome\": \"Caneta Azul\",\n                        \"quantidade\": 8,\n                        \"preco\": 1.35,\n                        \"data_exclusao\": null\n                    }\n                }\n            ]\n        }\n    ],\n    \"page\": 0,\n    \"limit\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n    \"produtos\": [{\n        \"index\": 1,\n        \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n        \"quantidade\": 2,\n        \"val_unit\": 1.35,\n        \"val_tot\": 2.7\n    }],\n    \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n    \"val_total\": 2.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+							"host": [
+								"localhost"
+							],
+							"port": "5040",
+							"path": [
+								"f7495bc7-f568-4533-9139-e7044e6304fb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "alterar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n    \"produtos\": [{\n        \"index\": 1,\n        \"produtoId\": \"4f85f0d8-9d05-4947-a4c0-5bf7fefb8648\",\n        \"quantidade\": 2,\n        \"val_unit\": 1.35,\n        \"val_tot\": 2.7\n    }],\n    \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n    \"val_total\": 2.7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+									"host": [
+										"localhost"
+									],
+									"port": "5040",
+									"path": [
+										"f7495bc7-f568-4533-9139-e7044e6304fb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 18:16:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro alterado com sucesso!\",\n    \"data\": {\n        \"id\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n        \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n        \"val_total\": 2.7,\n        \"data_criacao\": \"2023-12-21T17:53:10.499Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+							"host": [
+								"localhost"
+							],
+							"port": "5040",
+							"path": [
+								"f7495bc7-f568-4533-9139-e7044e6304fb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:5040/f7495bc7-f568-4533-9139-e7044e6304fb",
+									"host": [
+										"localhost"
+									],
+									"port": "5040",
+									"path": [
+										"f7495bc7-f568-4533-9139-e7044e6304fb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Dec 2023 18:21:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": null,\n    \"message\": \"Registro removido com sucesso!\",\n    \"data\": {\n        \"id\": \"f7495bc7-f568-4533-9139-e7044e6304fb\",\n        \"id_usuario\": \"5f50908e-f6b9-4868-820f-23bcc10a6659\",\n        \"clienteId\": \"251dedb7-c9e7-44cc-8bf8-730fdb1e7561\",\n        \"formaPagamentoId\": \"f2b1584f-8e46-467f-985e-580963390fbe\",\n        \"val_total\": 2.7,\n        \"data_criacao\": \"2023-12-21T17:53:10.499Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

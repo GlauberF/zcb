@@ -1,6 +1,5 @@
 .idea
 .idea/*
-docker/data
 clientes/node_modules
 formas_pagamento/node_modules
 produtos/node_modules

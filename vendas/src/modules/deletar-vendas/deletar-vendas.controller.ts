@@ -2,15 +2,15 @@ import {extractId} from "../../utils/utils";
 import {handleGenericError, handleMissingId} from "../../utils/errors";
 import {handleResponse} from "../../utils/response";
 
-import {DeletarProdutosUsecase} from "./deletar-produtos.usecase";
+import {DeletarVendasUsecase} from "./deletar-vendas.usecase";
 
-export class DeletarProdutosController {
+export class DeletarVendasController {
     constructor() {
     }
 
     async handle(req: any, res: any) {
         const id = extractId(req.url) ?? '';
-        const useCase = new DeletarProdutosUsecase();
+        const useCase = new DeletarVendasUsecase();
 
         try {
             const result = await useCase.execute(id);
