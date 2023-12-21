@@ -31,7 +31,6 @@ export class CriarClientesUseCase {
             }
         });
 
-        console.log('MS_CLIENTES_CREATED')
         const kafkaProducer = new KafkaSendMessage();
         await kafkaProducer.execute('MS_CLIENTES_CREATED', novoCliente);
 

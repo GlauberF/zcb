@@ -60,9 +60,6 @@ CREATE TABLE "vendas_produtos" (
     CONSTRAINT "vendas_produtos_pkey" PRIMARY KEY ("id")
 );
 
--- CreateIndex
-CREATE UNIQUE INDEX "clientes_email_key" ON "clientes"("email");
-
 -- AddForeignKey
 ALTER TABLE "vendas" ADD CONSTRAINT "vendas_clienteId_fkey" FOREIGN KEY ("clienteId") REFERENCES "clientes"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 

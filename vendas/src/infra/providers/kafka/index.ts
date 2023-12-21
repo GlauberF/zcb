@@ -1,6 +1,6 @@
 import { Kafka, logLevel } from "kafkajs";
 
-const kf = new Kafka({
+const kafka = new Kafka({
     clientId: 'ms-apps',
     brokers: ['frank-goat-11116-us1-kafka.upstash.io:9092'],  // Replace with your Kafka broker
     ssl: true,
@@ -10,7 +10,9 @@ const kf = new Kafka({
         password: 'YzVhMGYxMWMtYzk4Yy00NTFmLWExNDktN2M4ODRhMTZhZWZl'    // Replace with your password
     }
 });
-
-const kafka = kf.consumer({ groupId: 'ms_vendas' });
+// const kafka = new Kafka({
+//     clientId: 'ms-apps',
+//     brokers: ['localhost:9091']
+// });
 
 export { kafka };

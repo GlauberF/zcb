@@ -16,7 +16,7 @@ model Clientes {
   nome         String
   cpf          String?
   endereco     String?
-  email        String    @unique
+  email        String
   cep          String?
   data_exclusao DateTime?
   Vendas       Vendas[]

@@ -1,10 +1,13 @@
-import {kafkaConsumers} from "../kafka.consumers";
 import {prismaClient} from "../../../database/prismaClient";
+import {kafka} from "../index";
 
-export async function clienteAlteradoConsumers() {
-    const consumer = await kafkaConsumers('MS_CLIENTES_UPDATED');
+const consumer = kafka.consumer({groupId: 'MS_VENDA_CLI_ALTERADO'});
+
+export const clienteAlteradoConsumers = async () => {
+    await consumer.connect();
+    await consumer.subscribe({topic: "MS_CLIENTES_UPDATED", fromBeginning: true});
     await consumer.run({
-        eachMessage: async ({ message, partition, offset }) => {
+        eachMessage: async ({message, partition, offset}) => {
             const messageToString = message.value?.toString();
             const cliente = JSON.parse(messageToString);
 

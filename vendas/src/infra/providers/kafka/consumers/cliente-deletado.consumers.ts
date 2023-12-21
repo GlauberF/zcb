@@ -1,22 +1,22 @@
-import {kafkaConsumers} from "../kafka.consumers";
 import {prismaClient} from "../../../database/prismaClient";
+import {kafka} from "../index";
 
-export async function clienteDeletadoConsumers() {
-    const consumer = await kafkaConsumers('MS_CLIENTES_DELETED');
+const consumer = kafka.consumer({groupId: 'MS_VENDA_CLI_DEL'});
+
+export const clienteDeletadoConsumers = async () => {
+    await consumer.connect();
+    await consumer.subscribe({topic: "MS_CLIENTES_DELETED", fromBeginning: true});
     await consumer.run({
-        eachMessage: async ({ message, partition, offset }) => {
+        eachMessage: async ({message, partition, offset}) => {
             const messageToString = message.value?.toString();
             const cliente = JSON.parse(messageToString);
-            console.log('-----------del---------------')
-            console.log(cliente)
-            console.log('------------del--------------')
 
             await prismaClient.clientes.update({
                 where: {
                     id: cliente.id
                 },
                 data: {
-                    data_excusao: new Date()
+                    data_exclusao: new Date()
                 },
             });
         }
