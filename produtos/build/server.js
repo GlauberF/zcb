@@ -27,6 +27,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const http = __importStar(require("http"));
 const routes_1 = __importDefault(require("./infra/routes"));
+require("./infra/provider/kafka/consumers/index");
 const server = http.createServer(routes_1.default);
 const PORT = 5030;
 server.listen(PORT, () => console.log(`MS Server Payment methods is running on port ${PORT}`));

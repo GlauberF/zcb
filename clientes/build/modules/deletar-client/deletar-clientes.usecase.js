@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeletarClientesUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
 const producer_1 = require("../../infra/provider/kafka/producer");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class DeletarClientesUsecase {
     constructor() {
     }
@@ -20,7 +21,10 @@ class DeletarClientesUsecase {
             if (!id)
                 throw new Error('O ID do registro não foi fornecido');
             const deletarCliente = yield prismaClient_1.prismaClient.clientes.delete({
-                where: { id }
+                where: {
+                    id,
+                    id_usuario: (0, fakeJWT_1.FakeJWT)().id
+                }
             });
             console.log('MS_CLIENTES_DELETED');
             const kafkaProducer = new producer_1.KafkaSendMessage();

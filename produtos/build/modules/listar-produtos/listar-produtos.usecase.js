@@ -22,6 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListarProdutosUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class ListarProdutosUsecase {
     constructor() { }
     execute(queryParams) {
@@ -35,7 +36,7 @@ class ListarProdutosUsecase {
             const where = Object.keys(restQueryParams).reduce((acc, key) => {
                 acc[key] = { contains: restQueryParams[key], mode: 'insensitive' };
                 return acc;
-            }, {});
+            }, { id_usuario: (0, fakeJWT_1.FakeJWT)().id });
             const filter = Object.keys(where).length > 0 ? { where } : {};
             return prismaClient_1.prismaClient.produtos.findMany(Object.assign({ skip: page, take: limit }, filter));
         });

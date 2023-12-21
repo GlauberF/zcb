@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuscarFormasPagamentoUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class BuscarFormasPagamentoUsecase {
     constructor() { }
     execute(id) {
@@ -18,7 +19,10 @@ class BuscarFormasPagamentoUsecase {
             if (!id)
                 throw new Error('O ID do registro não foi fornecido');
             return prismaClient_1.prismaClient.formasPagamento.findUnique({
-                where: { id }
+                where: {
+                    id,
+                    id_usuario: (0, fakeJWT_1.FakeJWT)().id
+                }
             });
         });
     }

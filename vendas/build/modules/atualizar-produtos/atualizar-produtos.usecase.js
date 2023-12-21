@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AtualizarProdutosUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class AtualizarProdutosUsecase {
     constructor() {
     }
@@ -21,7 +22,10 @@ class AtualizarProdutosUsecase {
             if (!data)
                 throw new Error('Body da solicitação ausente');
             return prismaClient_1.prismaClient.produtos.update({
-                where: { id: id },
+                where: {
+                    id,
+                    id_usuario: (0, fakeJWT_1.FakeJWT)().id
+                },
                 data: {
                     nome: data.nome,
                     quantidade: data.quantidade,

@@ -22,8 +22,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListarFormasPagamentoUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class ListarFormasPagamentoUsecase {
-    constructor() { }
+    constructor() {
+    }
     execute(queryParams) {
         return __awaiter(this, void 0, void 0, function* () {
             let limit = parseInt((queryParams === null || queryParams === void 0 ? void 0 : queryParams.limit) || '10', 10);
@@ -35,7 +37,7 @@ class ListarFormasPagamentoUsecase {
             const where = Object.keys(restQueryParams).reduce((acc, key) => {
                 acc[key] = { contains: restQueryParams[key], mode: 'insensitive' };
                 return acc;
-            }, {});
+            }, { id_usuario: (0, fakeJWT_1.FakeJWT)().id });
             const filter = Object.keys(where).length > 0 ? { where } : {};
             return prismaClient_1.prismaClient.formasPagamento.findMany(Object.assign({ skip: page, take: limit }, filter));
         });

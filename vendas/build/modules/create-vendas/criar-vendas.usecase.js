@@ -11,6 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CriarVendasUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
+const producer_1 = require("../../infra/providers/kafka/producer");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class CriarVendasUsecase {
     constructor() {
     }
@@ -20,7 +22,7 @@ class CriarVendasUsecase {
                 throw new Error('Body da solicitação ausente');
             const venda = yield prismaClient_1.prismaClient.vendas.create({
                 data: {
-                    id_usuario: data.id_usuario,
+                    id_usuario: (0, fakeJWT_1.FakeJWT)().id,
                     clienteId: data.clienteId,
                     produtos: {
                         createMany: {
@@ -46,9 +48,9 @@ class CriarVendasUsecase {
                         quantidade: ((produtoDB === null || produtoDB === void 0 ? void 0 : produtoDB.quantidade) || 0) - item.quantidade
                     }
                 });
-                // Atualiza Estoque
-                // const kafkaProducer = new KafkaSendMessage();
-                // await kafkaProducer.execute('MS_PRODUTOS_UPDATE_QUANTIDADE', produto);
+                // Envia solicitaćão para atualizar Estoque
+                const kafkaProducer = new producer_1.KafkaSendMessage();
+                yield kafkaProducer.execute('MS_PRODUTOS_UPDATE_QUANTIDADE', produto);
             }
             return venda;
         });

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CriarFormasPagamentoUsecase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
 const producer_1 = require("../../infra/provider/kafka/producer");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class CriarFormasPagamentoUsecase {
     constructor() { }
     execute(data) {
@@ -19,7 +20,7 @@ class CriarFormasPagamentoUsecase {
             if (!data)
                 throw new Error('Body da solicitação ausente');
             const novaFormaPagamento = yield prismaClient_1.prismaClient.formasPagamento.create({
-                data: Object.assign({}, data)
+                data: Object.assign({ id_usuario: (0, fakeJWT_1.FakeJWT)().id }, data)
             });
             const kafkaProducer = new producer_1.KafkaSendMessage();
             yield kafkaProducer.execute('MS_FORMAS_PAGAMENTO_CREATED', novaFormaPagamento);

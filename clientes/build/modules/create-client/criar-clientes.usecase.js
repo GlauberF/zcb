@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CriarClientesUseCase = void 0;
 const prismaClient_1 = require("../../infra/database/prismaClient");
 const producer_1 = require("../../infra/provider/kafka/producer");
+const fakeJWT_1 = require("../../utils/fakeJWT");
 class CriarClientesUseCase {
     constructor() {
     }
@@ -27,7 +28,7 @@ class CriarClientesUseCase {
             if (cliente)
                 throw new Error('Cliente já existe');
             const novoCliente = yield prismaClient_1.prismaClient.clientes.create({
-                data: Object.assign({}, data)
+                data: Object.assign({ id_usuario: (0, fakeJWT_1.FakeJWT)().id }, data)
             });
             const kafkaProducer = new producer_1.KafkaSendMessage();
             yield kafkaProducer.execute('MS_CLIENTES_CREATED', novoCliente);
