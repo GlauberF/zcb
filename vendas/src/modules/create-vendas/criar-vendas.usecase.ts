@@ -1,8 +1,8 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 import {KafkaSendMessage} from "../../infra/providers/kafka/producer";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 type CriarVendasRequest = {
-    id_usuario: string, // viria do jwt
     clienteId: string,
     produtos: [{
         index: number,
@@ -24,7 +24,7 @@ export class CriarVendasUsecase {
 
         const venda = await prismaClient.vendas.create({
             data: {
-                id_usuario: data.id_usuario,
+                id_usuario: FakeJWT().id,
                 clienteId: data.clienteId,
                 produtos: {
                     createMany: {
@@ -53,9 +53,9 @@ export class CriarVendasUsecase {
                 }
             });
 
-            // Atualiza Estoque
-            // const kafkaProducer = new KafkaSendMessage();
-            // await kafkaProducer.execute('MS_PRODUTOS_UPDATE_QUANTIDADE', produto);
+            // Envia solicitaćão para atualizar Estoque
+            const kafkaProducer = new KafkaSendMessage();
+            await kafkaProducer.execute('MS_PRODUTOS_UPDATE_QUANTIDADE', produto);
         }
 
         return venda;

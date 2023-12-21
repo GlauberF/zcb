@@ -1,5 +1,6 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 export class DeletarClientesUsecase {
     constructor() {
@@ -9,7 +10,10 @@ export class DeletarClientesUsecase {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
         const deletarCliente = await prismaClient.clientes.delete({
-            where: {id}
+            where: {
+                id,
+                id_usuario: FakeJWT().id
+            }
         });
 
         console.log('MS_CLIENTES_DELETED')

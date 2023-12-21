@@ -1,8 +1,8 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 type CriarProdutosRequest = {
-    id_usuario: string,
     nome: string,
     quantidade: number,
     preco: number
@@ -16,6 +16,7 @@ export class CriarProdutosUsecase {
 
         const novoProduto = await prismaClient.produtos.create({
             data: {
+                id_usuario: FakeJWT().id,
                 ...data
             }
         });

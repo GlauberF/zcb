@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 export class ListarClientesUsecase {
     constructor() {
@@ -16,7 +17,7 @@ export class ListarClientesUsecase {
         const where = Object.keys(restQueryParams).reduce((acc, key) => {
             acc[key] = {contains: restQueryParams[key], mode: 'insensitive'};
             return acc;
-        }, {});
+        }, {id_usuario: FakeJWT().id});
 
         const filter = Object.keys(where).length > 0 ? {where} : {};
 

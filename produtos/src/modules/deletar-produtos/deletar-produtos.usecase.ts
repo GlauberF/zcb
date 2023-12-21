@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 export class DeletarProdutosUsecase {
     constructor() {
@@ -8,7 +9,10 @@ export class DeletarProdutosUsecase {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
         return prismaClient.produtos.delete({
-            where: {id}
+            where: {
+                id,
+                id_usuario: FakeJWT().id
+            }
         });
     }
 }

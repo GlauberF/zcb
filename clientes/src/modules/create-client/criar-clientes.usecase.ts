@@ -1,9 +1,9 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 type CriarClientesRequest = {
     nome: string,
-    id_usuario: string,
     cpf: string,
     endereco: string,
     email: string,
@@ -27,6 +27,7 @@ export class CriarClientesUseCase {
 
         const novoCliente = await prismaClient.clientes.create({
             data: {
+                id_usuario: FakeJWT().id,
                 ...data
             }
         });

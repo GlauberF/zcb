@@ -1,7 +1,9 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 export class ListarFormasPagamentoUsecase {
-    constructor() {}
+    constructor() {
+    }
 
     async execute(queryParams?: any) {
         let limit = parseInt(queryParams?.limit || '10', 10);
@@ -15,7 +17,7 @@ export class ListarFormasPagamentoUsecase {
         const where = Object.keys(restQueryParams).reduce((acc, key) => {
             acc[key] = {contains: restQueryParams[key], mode: 'insensitive'};
             return acc;
-        }, {});
+        }, {id_usuario: FakeJWT().id});
 
         const filter = Object.keys(where).length > 0 ? {where} : {};
 

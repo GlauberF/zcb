@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 type AtualizarFormasPagamentoRequest = {
     nome: string,
@@ -15,7 +16,10 @@ export class AtualizarFormasPagamentoUsecase {
         if (!data) throw new Error('Body da solicitação ausente');
 
         return prismaClient.formasPagamento.update({
-            where: {id: id},
+            where: {
+                id,
+                id_usuario: FakeJWT().id
+            },
             data: {
                 nome: data.nome,
                 parcelas: data.parcelas

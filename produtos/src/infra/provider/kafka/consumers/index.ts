@@ -1,0 +1,1 @@
+import "./venda-criada.consumers";

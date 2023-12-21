@@ -1,4 +1,5 @@
 import {prismaClient} from "../../infra/database/prismaClient";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 export class BuscarFormasPagamentoUsecase {
     constructor() {}
@@ -7,7 +8,10 @@ export class BuscarFormasPagamentoUsecase {
         if (!id) throw new Error('O ID do registro não foi fornecido');
 
         return prismaClient.formasPagamento.findUnique({
-            where: {id}
+            where: {
+                id,
+                id_usuario: FakeJWT().id
+            }
         });
     }
 }

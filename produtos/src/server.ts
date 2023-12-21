@@ -1,5 +1,6 @@
 import * as http from 'http';
 import routes from "./infra/routes";
+import "./infra/provider/kafka/consumers/index";
 
 const server = http.createServer(routes);
 

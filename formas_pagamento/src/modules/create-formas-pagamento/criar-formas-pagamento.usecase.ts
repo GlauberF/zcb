@@ -1,8 +1,8 @@
 import {prismaClient} from "../../infra/database/prismaClient";
 import {KafkaSendMessage} from "../../infra/provider/kafka/producer";
+import {FakeJWT} from "../../utils/fakeJWT";
 
 type CriarFormasPagamentoRequest = {
-    id_usuario: string,
     nome: string,
     parcelas: string
 }
@@ -15,6 +15,7 @@ export class CriarFormasPagamentoUsecase {
 
         const novaFormaPagamento = await prismaClient.formasPagamento.create({
             data: {
+                id_usuario: FakeJWT().id,
                 ...data
             }
         });
