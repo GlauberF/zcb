@@ -43,6 +43,10 @@ As rotas estão configuradas com portas diferentes, mas, devido à falta de temp
    docker-compose up -d
 
 ## Exemplos de Uso da API
-1. Listar clientes ou qual quer outro listar com paginação e filtragem:
+1. Listar clientes ou qualquer outro recurso com paginação e filtragem:
     - /clientes?limit=10&page=1
     - /clientes?nome=glauber
+
+Para trabalhar com os parâmetros, implementei uma abordagem dinâmica com o objetivo de tornar o processo de busca automatizado. Por exemplo, a coluna "nome" não possui um mapeamento fixo; ela está sendo obtida e atribuída dinamicamente.
+É importante ressaltar que, em um ambiente de produção, seria necessário realizar uma análise mais aprofundada, considerando questões como SQL injection, entre outros.
+
